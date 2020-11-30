@@ -23,10 +23,11 @@ import { loginUser } from './actions';
     const dispatch = useDispatch();
 
     const login = () => {
+      if(email!=''&&password!=''){
         setShowLoading(!showLoading);
           dispatch(loginUser(email, password ));
       console.log("waspress");
-      setShowLoading(false);
+      setShowLoading(false);}
     };
 
     useEffect(() => {
