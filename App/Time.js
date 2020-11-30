@@ -133,11 +133,11 @@ selecteChange=== 0 ? styles.btnActive : styles.btn      }
               )}
 
 <Text>{selectedHours+":"+selectedMinutes+" "+selectedaa}</Text>
-        <DatePicker
+  /*      <DatePicker
                 date={date}
                 mode="time"
                 onDateChange={setDate}
-              />
+              /> */
 </View>
         </SafeAreaView>
     );

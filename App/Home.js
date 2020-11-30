@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text,StyleSheet ,Button,TouchableOpacity} from 'react-native';
-import {Icon } from 'react-native-elements';
+import { View,StyleSheet ,TouchableOpacity} from 'react-native';
+import {Button,Icon,Text } from 'react-native-elements';
 import auth from '@react-native-firebase/auth';
 //redux
 import { useSelector,useDispatch } from 'react-redux';
@@ -48,24 +48,26 @@ setUserTime(JSON.stringify(userdatastoretime));
         <View style={styles.subContainerButt}>
             <Button   color="#fff"
 title="Date"
-                buttonStyle={{  margin: 20 }}
+buttonStyle={
+styles.btnActive      }
                 onPress={() => {navigation.navigate('Date')}} />
                 </View>
                 <View style={styles.subContainerButt}>
 
                     <Button   color="#fff"
 
-  buttonStyle={{ margin: 20 }}
-title="Time"
+                    buttonStyle={
+                  styles.btnActive      }
+                  title="Time"
                 onPress={() => {navigation.navigate('Time')}} />
                 </View>
                 </View>
-                <View style={{ flex: .2, alignItems: 'center',borderColor:"#000",borderWidth:5,margin:20,backgroundColor:"#fff"}}>
+                <View style={{ flex: .4, alignItems: 'center',borderColor:"#000",borderWidth:5,margin:20,backgroundColor:"#fff"}}>
                     <Text style={{ fontSize: 28, height: 50  }}>date Select  </Text>
                     <Text style={{ fontSize: 20, height: 50  }}> {userDate}</Text>
 
                 </View>
-                <View style={{ flex: .2, alignItems: 'center',borderColor:"#000",borderWidth:5,margin:20,backgroundColor:"#fff"}}>
+                <View style={{ flex: .4, alignItems: 'center',borderColor:"#000",borderWidth:5,margin:20,backgroundColor:"#fff"}}>
                     <Text style={{ fontSize: 28, height: 50  }}>time Select  </Text>
                     <Text style={{ fontSize: 20, height: 50  }}> {userTime}</Text>
 
@@ -115,6 +117,15 @@ const styles = StyleSheet.create({
     subContainerButt: {
 backgroundColor:"#000",
         margin: 20,
-        padding:25
+        padding:10
     },
+    btnActive: {
+      alignItems: 'center',
+      backgroundColor: '#000',
+      borderColor: '#fff',
+      borderRadius: 10,
+      padding: 5,
+      margin:10
+
+    }
 })

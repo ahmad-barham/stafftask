@@ -1,6 +1,6 @@
 import React, { useState ,  useEffect } from 'react';
-import { StyleSheet, ActivityIndicator, View, Text, Image,Alert ,TextInput,Button} from 'react-native';
-import { Input, Icon } from 'react-native-elements';
+import { StyleSheet, ActivityIndicator, View, Text, Image,Alert ,TextInput} from 'react-native';
+import { Button,Input, Icon } from 'react-native-elements';
 import auth from '@react-native-firebase/auth';
 import { useSelector,useDispatch } from 'react-redux';
 import { loginUser } from './actions';
@@ -78,8 +78,8 @@ const emailChange=(data)=>{
 
               <View style={styles.subContainerButt}>
                     <Button
-                          style={styles.textInput}
-color="#fff"
+                  buttonStyle={
+       styles.btnActive      }
                           title="Login"
                           onPress={() => {login()}} />
                 </View>:null}
@@ -93,8 +93,8 @@ color="#fff"
                 </View>
 
                 <View style={styles.subContainerButt}>
-                    <Button   color="#fff"
-
+                    <Button   buttonStyle={
+       styles.btnActive      }
                         style={styles.textInput}
 
                         title="Register"
@@ -151,7 +151,15 @@ backgroundColor:"#000",
         margin: 5,
         width: 200
     },
+    btnActive: {
+      alignItems: 'center',
+      backgroundColor: '#000',
+      borderColor: '#fff',
+      borderRadius: 10,
+      padding: 10,
+      margin:10
 
+    }
 })
 
 
