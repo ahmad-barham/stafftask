@@ -16,7 +16,7 @@ const AppStack = createStackNavigator({
 
 const AuthNavigator = createStackNavigator({
   LoginRoute: {
-    screen: Login,
+    screen: Time,
     navigationOptions: () => ({
       header: null
     })
