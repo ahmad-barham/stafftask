@@ -50,7 +50,9 @@ const emailChange=(data)=>{
 }
     return (
         <View style={styles.container}>
-        <Image source={require('./email.png')} />
+        <Image style={{ width: 50,
+    height: 50,
+    resizeMode: 'contain'}} source={require('./email.png')} />
 
             <View style={styles.formContainer}>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -136,7 +138,7 @@ const styles = StyleSheet.create({
     },
     subContainerButt: {
 backgroundColor:"#000",
-        marginBottom: 20,
+        marginBottom: 5,
     },
     activity: {
         position: 'absolute',
@@ -157,8 +159,8 @@ backgroundColor:"#000",
       backgroundColor: '#000',
       borderColor: '#fff',
       borderRadius: 10,
-      padding: 10,
-      margin:10
+      padding: 5,
+      margin:5
 
     }
 })

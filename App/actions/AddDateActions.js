@@ -5,7 +5,7 @@ import {
 
 
 } from './types';
-import{getData,updateDate,updatetime} from"../api/api";
+import{getData,updateDate,updatetime,setData} from"../api/api";
 
 
 
@@ -31,6 +31,15 @@ export const addTime = (uid,user,...time) => {
   return (dispatch) => {
     dispatch({ type: ADDING_DATE  });
 updatetime(uid,user,time).then(resp => { handleResponse(dispatch, resp);})
+.catch(error => console.log(error));
+    //Get Token from local storage
+
+  }
+}
+export const addInitial = (uid,user) => {
+  return (dispatch) => {
+    dispatch({ type: ADDING_DATE  });
+setData(uid,user).then(resp => { handleResponse(dispatch, resp);})
 .catch(error => console.log(error));
     //Get Token from local storage
 

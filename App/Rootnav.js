@@ -12,9 +12,7 @@ import Picerdata from "./picerdata";
 const AppStack = createStackNavigator({
   Home: Home,
   Date: Date,
-
   Time: Time,
-  Register:Register,
 
 })
 
@@ -26,6 +24,8 @@ const AuthNavigator = createStackNavigator({
       headerShown: null
     })
   },
+  Register:Register,
+
 });
  const  AppContainer = createAppContainer(createSwitchNavigator(
   {    Auth: AuthNavigator

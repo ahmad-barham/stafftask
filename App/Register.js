@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
-import { StyleSheet, ActivityIndicator, View, Text, Alert,Button } from 'react-native';
-import {  Input, Icon } from 'react-native-elements';
+import { StyleSheet, ActivityIndicator, View, Text, Alert, } from 'react-native';
+import {Button,  Input, Icon } from 'react-native-elements';
 import auth from '@react-native-firebase/auth';
-import{setData,getData,updateData} from"./api/api";
+//redux
+import { addInitial } from './actions';
+import { useSelector,useDispatch } from 'react-redux';
+import{getData,updateDate,updatetime,setData} from "./api/api";
+
 export default function Register({ navigation }) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showLoading, setShowLoading] = useState(false);
     const [uid, setuid] = useState(null);
+
+//redux
+
+const dispatch = useDispatch();
 
     const register = async() => {
         setShowLoading(true);
@@ -17,10 +25,9 @@ export default function Register({ navigation }) {
 
             setShowLoading(false);
             if(doRegister.user ) {
-              setData(doRegister.user.uid,doRegister.user.email)
-              console.log("uid"+JSON.stringify(doRegister.user.uid))
+            dispatch(addInitial( doRegister.user.uid,doRegister.user.email));
 
-                navigation.navigate('Auth');
+                navigation.navigate('LoginRoute');
             }
         } catch (e) {
             setShowLoading(false);
@@ -66,7 +73,9 @@ export default function Register({ navigation }) {
                     />
                 </View>
                 <View style={styles.subContainerButt}>
-                    <Button   color="#fff"
+                <Button
+              buttonStyle={
+   styles.btnActive      }
                         title="Register"
                         onPress={() => register()} />
                 </View>
@@ -74,11 +83,12 @@ export default function Register({ navigation }) {
                     <Text>Already a user?</Text>
                 </View>
                 <View style={styles.subContainerButt}>
-                    <Button   color="#fff"
-
+                <Button
+              buttonStyle={
+              styles.btnActive      }
                         title="Login"
                         onPress={() => {
-                            navigation.navigate('Auth');
+                            navigation.navigate('LoginRoute');
                         }} />
                 </View>
                 {showLoading &&
@@ -126,6 +136,14 @@ const styles = StyleSheet.create({
     },
     subContainerButt: {
 backgroundColor:"#000",
-        marginBottom: 20,
-    },
+        marginBottom: 2,
+    },  btnActive: {
+        alignItems: 'center',
+        backgroundColor: '#000',
+        borderColor: '#fff',
+        borderRadius: 10,
+        padding: 10,
+        margin:5
+
+      }
 })
