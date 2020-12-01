@@ -11,7 +11,7 @@ return(
         user:user,
 
     })
-    .then(()=> {data})
+    .then((data)=> {data})
 )
 }
 export const updateDate=(uid,user,{...singledate})=>{
