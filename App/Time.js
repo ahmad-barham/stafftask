@@ -1,17 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {
-  DatePickerIOS,
   StyleSheet,
-  ActivityIndicator,
   View,
   Text,
-  Alert,
   SafeAreaView,
   Platform,
-  ToggleButtonGroup,
 } from 'react-native';
 import {Button, Input, Icon} from 'react-native-elements';
-import auth from '@react-native-firebase/auth';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 import moment from 'moment';
 
@@ -24,8 +19,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import {addTime} from './actions';
 
 export default function Time({navigation}) {
-  const [uid, setUid] = useState(useSelector((state) => state.auth.uid));
-  const [user, setUser] = useState(useSelector((state) => state.auth.user));
+  const uid= useSelector((state) => state.auth.uid);
+  const user =useSelector((state) => state.auth.user);
   const [date, setDate] = useState(new Date());
   const isIos = Platform.OS === 'ios';
 

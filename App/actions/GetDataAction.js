@@ -3,7 +3,7 @@ GET_DATA_FAILED,
   GAET_DATA_SUCCESS,
   GET_DATE
 } from './types';
-import{setData,getData} from"../api/api";
+import{getData} from"../api/api";
 
 
 

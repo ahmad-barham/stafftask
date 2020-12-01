@@ -1,14 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
-  ActivityIndicator,
   View,
   Text,
-  Alert,
-  Button,
   SafeAreaView,
-  TouchableOpacity,
-  TextInput,
 } from 'react-native';
 
 import SegmentedControlTab from 'react-native-segmented-control-tab';
@@ -21,8 +16,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import {addDate} from './actions';
 
 export default function Date({navigation}) {
-  const [uid, setUid] = useState(useSelector((state) => state.auth.uid));
-  const [user, setUser] = useState(useSelector((state) => state.auth.user));
+  const uid= useSelector((state) => state.auth.uid);
+  const user=useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
 
   const [singleDate, setsingleDate] = useState(moment());
@@ -67,6 +62,7 @@ export default function Date({navigation}) {
           tabsContainerStyle={{
             height: 50,
             backgroundColor: '#F2F2F2',
+
           }}
           tabStyle={{
             flex: 0.5,
@@ -77,14 +73,15 @@ export default function Date({navigation}) {
           activeTabStyle={{
             backgroundColor: 'white',
             marginTop: 2,
-            flex: 0.5,
+            flex: 0.8,
           }}
           tabTextStyle={{
             color: '#444444',
             fontWeight: 'bold',
           }}
           activeTabTextStyle={{
-            color: '#888888',
+            color: '#000',
+            
           }}
         />
         {customStyleIndex === 0 && (
@@ -111,6 +108,7 @@ export default function Date({navigation}) {
           <Text> {selectendDate} </Text>
         </View>
       )}
+      <View Style={{flex:.2}}></View>
     </SafeAreaView>
   );
 }

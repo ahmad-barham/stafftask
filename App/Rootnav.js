@@ -7,7 +7,6 @@ import Home from './Home';
 import Date from './Date';
 import Login from './Login';
 import Register from './Register';
-import Picerdata from './picerdata';
 
 const AppStack = createStackNavigator({
   Home: Home,

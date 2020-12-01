@@ -5,22 +5,16 @@ import {
   View,
   Text,
   Image,
-  Alert,
   TextInput,
 } from 'react-native';
-import {Button, Input, Icon} from 'react-native-elements';
-import auth from '@react-native-firebase/auth';
+import {Button} from 'react-native-elements';
 import {useSelector, useDispatch} from 'react-redux';
 import {loginUser} from './actions';
 
 function Login({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [load, setLoad] = useState(false);
   const [emailvisible, setemailvisible] = useState(false);
-
-  const [passvisible, setpassvisible] = useState(false);
-
   const [showLoading, setShowLoading] = useState(false);
   const error = useSelector((state) => state.auth.error);
   const user = useSelector((state) => state.auth.user);
@@ -44,15 +38,7 @@ function Login({navigation}) {
     }
   }, [loading]);
 
-  const loginbtn = () => {
-    return (
-      <Button
-        style={styles.textInput}
-        title="next"
-        onPress={() => setpassvisible(true)}
-      />
-    );
-  };
+
   const emailChange = (data) => {
     setEmail(data);
     setemailvisible(true);
@@ -65,7 +51,7 @@ function Login({navigation}) {
           height: 50,
           resizeMode: 'contain',
         }}
-        source={require('./email.png')}
+        source={require('./assest/email.png')}
       />
 
       <View style={styles.formContainer}>

@@ -4,14 +4,12 @@ import {Button, Input, Icon} from 'react-native-elements';
 import auth from '@react-native-firebase/auth';
 //redux
 import {addInitial} from './actions';
-import {useSelector, useDispatch} from 'react-redux';
-import {getData, updateDate, updatetime, setData} from './api/api';
+import { useDispatch} from 'react-redux';
 
 export default function Register({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showLoading, setShowLoading] = useState(false);
-  const [uid, setuid] = useState(null);
 
   //redux
 

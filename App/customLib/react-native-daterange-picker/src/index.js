@@ -416,9 +416,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0,0,0,0)",
     width: width,
     height: height,
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 2147483647,
+    justifyContent: "flex-start",
+    alignItems: "center"
   },
   container: {
     backgroundColor: "white",
