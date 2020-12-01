@@ -5,7 +5,7 @@ import {
 
 
 } from './types';
-import{getData,updateDate,updatetime,setData} from"../api/api";
+import{updateDate,updatetime,setData} from"../api/api";
 
 
 
