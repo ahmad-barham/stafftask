@@ -4,7 +4,7 @@ import {
   View,
   Text,
   SafeAreaView,
-  Platform,
+  Platform,Dimensions
 } from 'react-native';
 import {Button, Input, Icon} from 'react-native-elements';
 import SegmentedControlTab from 'react-native-segmented-control-tab';
@@ -25,10 +25,10 @@ export default function Time({navigation}) {
   const isIos = Platform.OS === 'ios';
 
   const [selectedHours, setSelectedHours] = useState(
-    moment(new Date()).format('hh'),
+moment(new Date()).format('hh')
   );
   const [selectedMinutes, setSelectedMinutes] = useState(
-    moment(new Date()).format('mm'),
+  moment(new Date()).format('mm')
   );
   const [selectedaa, setSelectedaa] = useState(moment(new Date()).format('A'));
   const dispatch = useDispatch();
@@ -39,6 +39,7 @@ export default function Time({navigation}) {
     moment(new Date()).format('hh:mm A'),
   );
   const [selecteChange, setselecteChange] = useState(0);
+  const windowWidth = Dimensions.get('window').width;
 
   useEffect(() => {
     const time = selectedHours + ':' + selectedMinutes + ' ' + selectedaa;
@@ -141,7 +142,7 @@ export default function Time({navigation}) {
                 setselecteChange(1);
               }}
             />
-
+<View style={{width:windowWidth}}>
             <TimePicker
               selectedHours={selectedHours}
               //initial Hourse value
@@ -153,10 +154,11 @@ export default function Time({navigation}) {
                 setSelectedaa(aa);
               }}
             />
+            </View>
           </View>
         )}
         {customStyleIndex === 1 && !isIos && (
-          <View>
+          <View style={{alignItems:'center'}}>
             <Button
               buttonStyle={selecteChange === 0 ? styles.btnActive : styles.btn}
               title={'start:' + selecteStartTime}
@@ -219,6 +221,7 @@ const styles = StyleSheet.create({
   btn: {
     alignItems: 'center',
     backgroundColor: '#bfbbbb',
+marginHorizontal:100,
     borderColor: '#dc00ff',
     borderRadius: 10,
     borderWidth: 0,
@@ -230,7 +233,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     borderColor: '#fff',
     borderRadius: 10,
+    borderWidth: 0,
     padding: 10,
     margin: 10,
+    marginHorizontal:100,
+
   },
 });

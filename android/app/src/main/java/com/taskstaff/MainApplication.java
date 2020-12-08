@@ -5,7 +5,6 @@ import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 //import com.wheelpicker.WheelPickerPackage;
-import com.zyu.ReactNativeWheelPickerPackage;
 
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactInstanceManager;

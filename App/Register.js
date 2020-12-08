@@ -49,7 +49,7 @@ export default function Register({navigation}) {
               fontSize: 28,
               height: 50,
             }}>
-            
+
             Register Here!
           </Text>
         </View>
@@ -120,6 +120,8 @@ const styles = StyleSheet.create({
   formContainer: {
     height: 400,
     padding: 5,
+    width:'80%'
+
   },
   subContainer: {
     marginBottom: 20,

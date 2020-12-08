@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {Picker} from '@react-native-community/picker';
 import {
-  Picker,
   View,
   StyleSheet,
 } from 'react-native';
@@ -21,8 +21,8 @@ const MAX_AA = 2;
 
 export default class TimePicker extends Component {
   static propTypes = {
-    selectedHours: PropTypes.number,
-    selectedMinutes: PropTypes.number,
+    selectedHours: PropTypes.any,
+    selectedMinutes: PropTypes.any,
     selectedaa: PropTypes.string,
 
     onChange: PropTypes.func,

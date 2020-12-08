@@ -11,7 +11,7 @@ export default function Home({navigation}) {
 
   const [userDate, setUserDate] = useState([]);
   const [userTime, setUserTime] = useState(['']);
-  
+
   const uid = useSelector((state) => state.auth.uid);
   const userdatastoredate = useSelector(
     (state) => state.getDatastore.getdatadate,
@@ -62,74 +62,38 @@ export default function Home({navigation}) {
         </View>
       </View>
       <View
-        style={{
-          flex: 0.4,
-          alignItems: 'center',
-          borderColor: '#000',
-          borderWidth: 5,
-          margin: 20,
-          backgroundColor: '#fff',
-        }}>
+        style={styles.displayContaner}>
         <Text
-          style={{
-            fontSize: 28,
-            height: 50,
-          }}>
-          
+          style={styles.displayText}>
+
           date Select
         </Text>
         {userDate?.length === 1 && <Text
-          style={{
-            fontSize: 20,
-            height: 50,
-          }}>
-          
+          style={styles.displayGetData}>
+
           { userDate[0]}
         </Text>}
         {userDate?.length > 1 && <Text numberOfLines={3}
-          style={{
-            fontSize: 20,
-            height: 100,
-            textAlign:"center"
-          }}>
-          
+          style={styles.displayGetData}>
+
           { userDate[0] }{'\n'}to{'\n'} {userDate[1]}
         </Text>}
       </View>
       <View
-        style={{
-          flex: 0.4,
-          alignItems: 'center',
-          borderColor: '#000',
-          borderWidth: 5,
-          margin: 20,
-          backgroundColor: '#fff',
-        }}>
+        style={styles.displayContaner}>
         <Text
-          style={{
-            fontSize: 28,
-            height: 50,
-          }}>
-          
+          style={styles.displayText}>
+
           time Select
         </Text>
         {userTime?.length === 1 && <Text
-          style={{
-            fontSize: 20,
-            height: 50,
-            textAlign:"center"
+          style={styles.displayGetData}>
 
-          }}>
-          
           { userTime[0]}
         </Text>}
         {userTime?.length > 1 && <Text
-          style={{
-            fontSize: 20,
-            height: 100,
-            textAlign:"center"
-          }}>
-          
+          style={styles.displayGetData}>
+
           { userTime[0]} {'\n'} to {'\n'}{userTime[1]}
         </Text>}
       </View>
@@ -169,6 +133,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     margin: 20,
     padding: 10,
+    borderRadius:10
+
   },
   btnActive: {
     alignItems: 'center',
@@ -177,5 +143,30 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 5,
     margin: 10,
+    borderRadius:10
   },
+  displayGetData:{
+    fontSize: 16,
+    backgroundColor:'#fff',
+padding:5,
+borderRadius:5,
+textAlign: 'center',
+borderWidth: .5,
+borderColor: '#fff',
+overflow: 'hidden'
+
+
+},
+displayText:{
+  fontSize: 20,
+  color:'#fff',
+  padding:5
+},displayContaner:{
+  alignItems: 'center',
+  borderColor: '#000',
+  borderWidth: 5,
+  margin: 5,
+  backgroundColor: '#000',
+  padding:5
+}
 });
