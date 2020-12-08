@@ -3,11 +3,10 @@ import {
   StyleSheet,
   ActivityIndicator,
   View,
-  Text,
   Image,
   TextInput,
 } from 'react-native';
-import {Button} from 'react-native-elements';
+import {Button,Text} from 'react-native-elements';
 import {useSelector, useDispatch} from 'react-redux';
 import {loginUser} from './actions';
 
@@ -22,16 +21,28 @@ function Login({navigation}) {
 
   const dispatch = useDispatch();
 
-  const login = () => {
+  const login =  async () => {
+
     if (email != '' && password != '') {
-      setShowLoading(!showLoading);
-      dispatch(loginUser(email, password));
+      setShowLoading(true);
+      try {
+
+     await  dispatch(loginUser(email, password));
       setShowLoading(false);
+    }catch (e) {
+        setShowLoading(false);
+      }
     }
   };
 
+
+
+
+
+
   useEffect(() => {
     //   setLoad(loading);
+    setShowLoading(loading);
 
     if (user) {
       navigation.navigate('Home');
@@ -41,7 +52,7 @@ function Login({navigation}) {
 
   const emailChange = (data) => {
     setEmail(data);
-    setemailvisible(true);
+(data!='')?  setemailvisible(true):setemailvisible(false);
   };
   return (
     <View style={styles.container}>
@@ -104,19 +115,13 @@ function Login({navigation}) {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Text
-            style={{
-              fontSize: 17,
-              height: 50,
-              color: '#ff0000',
-            }}>
+          <Text  style={styles.textInput}>
             {error}
           </Text>
         </View>
         <View style={styles.subContainerButt}>
           <Button
             buttonStyle={styles.btnActive}
-            style={styles.textInput}
             title="Register"
             onPress={() => {
               navigation.navigate('Register');
